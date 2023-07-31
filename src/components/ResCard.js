@@ -1,7 +1,7 @@
 import React from "react";
 
 export const ResCard = (props) => {
-  const { name, cuisines, deliveryTime, costForTwo, cloudinaryImageId, avgRating } =
+  const { name, cuisines, sla, costForTwo, cloudinaryImageId, avgRating } =
     props.resList;
   return (
     <div className="res-card">
@@ -24,8 +24,8 @@ export const ResCard = (props) => {
         <div className="rating">{avgRating}</div>
       </div>
       <div className="card-footer">
-        <div>{deliveryTime} Min</div>
-        <div className="price">₹{costForTwo / 100}</div>
+        <div>{sla.deliveryTime} Min</div>
+        <div className="price">{costForTwo}</div>
       </div>
     </div>
   );
