@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const ResCard = (props) => {
-  const { name, cuisines, sla, costForTwo, cloudinaryImageId, avgRating } =
+  const { name, cuisines, sla, costForTwo, cloudinaryImageId, avgRating, id } =
     props.resList;
   return (
     <div className="res-card">
@@ -13,7 +14,7 @@ export const ResCard = (props) => {
         }
       />
       <div>
-        <h3>{name}</h3>
+      <Link to={`/restraurants/${id}`}>{name}</Link>
       </div>
       <div className="card-body">
         <div className="company-name">

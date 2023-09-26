@@ -10,6 +10,7 @@ export const Body = () => {
     fetchData();
   }, []);
 
+  // Fetching API data
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9698066&lng=77.7499632&page_type=DESKTOP_WEB_LISTING"
@@ -18,9 +19,12 @@ export const Body = () => {
     setCardList(
       json.data.cards[5].card.card.gridElements?.infoWithStyle.restaurants
     );
-    setRestaurantList(json.data.cards[5].card.card.gridElements?.infoWithStyle.restaurants)
+    setRestaurantList(
+      json.data.cards[5].card.card.gridElements?.infoWithStyle.restaurants
+    );
   };
 
+  // Filter logic
   topRatedResturantHandler = () => {
     const newList = cardList.filter(
       (item) => parseInt(item.info.avgRating) >= 4
@@ -42,8 +46,18 @@ export const Body = () => {
     setRestaurantList(filterData);
   };
 
+  cardClickHandler = (event, index) => {
+    console.log("Google", event, index);
+  };
+
   const bodyVar = restaurantList.map((item) => {
-    return <ResCard resList={item.info} key={item.info.id} />;
+    return (
+      <ResCard
+        onClick={(event) => cardClickHandler(event, item.info.id)}
+        resList={item.info}
+        key={item.info.id}
+      />
+    );
   });
 
   return cardList.length === 0 ? (
