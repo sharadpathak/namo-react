@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const ResCard = (props) => {
-  const { name, cuisines, sla, costForTwo, cloudinaryImageId, avgRating, id } =
+  const { name, cuisines, sla, costForTwo, cloudinaryImageId, avgRating, id,veg } =
     props.resList;
   return (
-    <div className="res-card">
+    <div className={
+      (veg ? "veg-category" : "non-veg-category") + " " +  "res-card"
+    }>
       <img
         className="food-item-img"
         src={
@@ -13,7 +15,7 @@ export const ResCard = (props) => {
           cloudinaryImageId
         }
       />
-      <div>
+      <div className="no-decoration">
       <Link to={`/restraurants/${id}`}>{name}</Link>
       </div>
       <div className="card-body">

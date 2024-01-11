@@ -17,10 +17,10 @@ export const Body = () => {
     );
     const json = await data.json();
     setCardList(
-      json.data.cards[5].card.card.gridElements?.infoWithStyle.restaurants
+      json.data.cards[4].card.card.gridElements?.infoWithStyle.restaurants
     );
     setRestaurantList(
-      json.data.cards[5].card.card.gridElements?.infoWithStyle.restaurants
+      json.data.cards[4].card.card.gridElements?.infoWithStyle.restaurants
     );
   };
 
